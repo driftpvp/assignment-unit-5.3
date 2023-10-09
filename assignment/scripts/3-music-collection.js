@@ -20,22 +20,24 @@ addToCollection( 'Siamese Dream' , 'Smashing Pumpkins' , 1993 );
 
 console.table(collection);
 
-function showCollection ([]) {
-    let result = "";
-    console.log([].length);
-    for (let i = 1; i < [].length; i++) {
-        result += [i];
-       }
-    return result;
-}
-showCollection(collection, `${addToCollection.title} ', by ' ${addToCollection.artist} ", pulished in " ${addToCollection.yearPublished}`);
 
+function showCollection (arrayInput) {
+    console.log('Array length: ', collection.length);
+    for (let i=0; i < collection.length; i++) {
+        console.log(`${collection[i].title} by ${collection[i].artist}, published: ${collection[i].yearPublished}`);
+    }
+}
+showCollection();
 
 function findByArtist(artist) {
-    let string = '';
-    for (let i = 1; i < collection.length; i++) {
-        string = collection [i] + artist; 
+    let band = [];
+    for ( let i=0; i< collection.length; i++) {
+        if (artist === collection[i].artist){
+            band.push(collection[i])
+        }
     }
-    return string;
+    return band;
 }
+
 console.log(findByArtist('Nirvana'));
+console.log(findByArtist('No Doubt'));
